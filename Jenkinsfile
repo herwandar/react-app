@@ -10,6 +10,9 @@ node {
                 checkout scm
                 sh './jenkins/scripts/test.sh'
             }
+                stage('Manual Approval'){
+                input message: 'Lanjutkan ke tahap Deploy?'
+        }
             stage('Deliver') {
             checkout scm
                 sh './jenkins/scripts/deliver.sh'
